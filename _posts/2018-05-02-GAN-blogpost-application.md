@@ -13,18 +13,35 @@ GANs are comprised of two major components, a **generator** and a **discriminato
 
 The generator and discriminator are adversaries. In other words, they are trying to fool each other. The generator wants to maximize the error function of the discriminator, while the discriminator wants to minimize its own error function. Notice how the discriminator is fed real images from the data set, as well as artificial images piped in from the generator. The discriminator must determine if its input is real or fake, and the generator must make its output realistic enough to fool the discriminator. As the discriminator gets better, the generator must improve to keep up, and vice versa. The result after enough training is a powerful generator neural network that is capable of generating realistic images!
 
-There is a common analogy used to help grasp this concept. Think of the discriminator as the police and the generator as a criminal who makes fake ID's. At first, the criminal is not very smart, and the ID's he produces are clearly fake (like [this one](https://images-na.ssl-images-amazon.com/images/I/51kGMAUsTSL._SY300_QL70_.jpg)). 
+There is a common analogy used to help grasp this concept. Think of the discriminator as the police and the generator as a criminal who makes fake ID's. At first, the criminal is not very smart, and the ID's he produces are clearly fake (like [this one](https://images-na.ssl-images-amazon.com/images/I/51kGMAUsTSL._SY300_QL70_.jpg)). But after being caught by the police a few times, the criminal learns how to make the ID's more realistic. Eventually he is able to fool the police. But then, the police adapt more sophisticated methods to catch fake ID's, and the criminal must find a way to improve his ID's even more. It is an ongoing battle between two adversaries: the police and the criminal, each getting better as the other improves.
 
+
+**Checkpoint Question 1:**: Which of the following statement(s) are true regarding the input for the generator? (see answer at the bottom)
+
+I) The input vector may contain any arbitray noise
+
+II) The input vector must have the same dimensionality as the output
+
+III) The input vector must remain constant throughout training
 
 
 # Training
 
+The generator and 
 
-# Questions
+
+# Review Questions
 
 
 # Answers & Explanations
 
+**Checkpoint Question 1: I only**
+
+I is true because the generator will manipulate whatever data it is given into the appropriate output. It doesn't matter if the fibonacci sequence or random static is fed in, they both carry no meaning to a machine. It is simply a starting point.
+
+II is false because the generator can upscale low-dimensional input into high-dimensional input. Given random input with dimensionality 10, there are many different ways to scale it up to a 784-dimensional image. Note that the input dimensionality cannot be greater than the output dimensionality.
+
+III is false because all the generator needs to do is create realistic images to fool the discriminator. It's not necessary to hold the input vector constant, if anything doing so may be bad because it could make the generator's output more predictable.
 
 # Resources
 https://deeplearning4j.org/generative-adversarial-network
