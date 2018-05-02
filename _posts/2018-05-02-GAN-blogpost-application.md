@@ -38,7 +38,17 @@ The generator and discriminator start off very unintelligent, and must improve b
 5. Train this one large network, with the fake images labeled as real. The goal is for all fake images to be reported as real by the discriminator. **Note:** freeze the weights of the discriminator to prevent this process from confusing/manipulating the discriminator, since we are focused on the generator now.
 6. Repeat all of these steps until the generator produces images of dogs that look realistic to a human.
 
-Training a discriminator is very similar to what we have seen before. We want it to minimize its error function using gradient descent, and determine its parameter weights through backpropogation. 
+
+Training a discriminator is very similar to what we have seen before. We want it to minimize its error function using gradient descent, and determine its parameter weights through backpropogation. This will almost always mean using a sigmoid error function, where the error for one input is calculated as:
+
+![missing image](https://github.com/bhahn16/caisplusplus.github.io/blob/master/images/GAN_errornosum.png)
+
+And so for all inputs **N**, 
+
+![missing image](https://github.com/bhahn16/caisplusplus.github.io/blob/master/images/GAN_errorsum.png)
+
+As for the generator, there are a few options for the error function, each one with its own drawback.
+
 
 # Review Questions
 
