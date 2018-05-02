@@ -45,7 +45,7 @@ Training a discriminator is very similar to what we have seen before. We want it
 
 And so for all inputs **N**, 
 
-![missing image](https://github.com/bhahn16/caisplusplus.github.io/blob/master/images/GAN_errorsum.png)
+![missing image](https://github.com/bhahn16/caisplusplus.github.io/blob/master/images/GAN_errorsum2.png)
 
 As for the generator, there are a few options for the error function, each one with its own drawback.
 
