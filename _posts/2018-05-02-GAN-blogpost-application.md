@@ -16,19 +16,29 @@ The generator and discriminator are adversaries. In other words, they are trying
 There is a common analogy used to help grasp this concept. Think of the discriminator as the police and the generator as a criminal who makes fake ID's. At first, the criminal is not very smart, and the ID's he produces are clearly fake (like [this one](https://images-na.ssl-images-amazon.com/images/I/51kGMAUsTSL._SY300_QL70_.jpg)). But after being caught by the police a few times, the criminal learns how to make the ID's more realistic. Eventually he is able to fool the police. But then, the police adapt more sophisticated methods to catch fake ID's, and the criminal must find a way to improve his ID's even more. It is an ongoing battle between two adversaries: the police and the criminal, each getting better as the other improves.
 
 
-**Checkpoint Question 1:**: Which of the following statement(s) are true regarding the input for the generator? (see answer at the bottom)
+**Checkpoint Question 1:** Which of the following statement(s) are true regarding the input for the generator?
 
-I) The input vector may contain any arbitray noise
+I) The input vector can contain any arbitray noise
 
 II) The input vector must have the same dimensionality as the output
 
 III) The input vector must remain constant throughout training
 
+(See answer at the bottom)
+
 
 # Training
 
-The generator and 
+The generator and discriminator start off very unintelligent, and must improve by battling each other. Here is the high-level list of steps that occur during training of a generative network, using the example of creating realistic images of dogs.
 
+1. Input a noise vector into the generator and produce **N** fake images. Note they will not be very good.
+2. Acquire a sample of **N** dog images from the real dataset.
+3. Train the discriminator with both of these image sets.
+4. Now the discriminator is somewhat smart, so to improve the generator, first "combine" the networks by piping the generator output into the discriminator.
+5. Train this one large network, with the fake images labeled as real. The goal is for all fake images to be reported as real by the discriminator. **Note:** freeze the weights of the discriminator to prevent this process from confusing/manipulating the discriminator, since we are focused on the generator now.
+6. Repeat all of these steps until the generator produces images of dogs that look realistic to a human.
+
+Training a discriminator is very similar to what we have seen before. We want it to minimize its error function using gradient descent, and determine its parameter weights through backpropogation. 
 
 # Review Questions
 
