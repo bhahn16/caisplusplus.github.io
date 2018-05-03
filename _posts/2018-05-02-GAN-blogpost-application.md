@@ -63,6 +63,24 @@ Let's apply this to GANs by doing the same thing, using the example above. First
 
 # Review Questions
 
+**Question 1:** Which of the following tasks would a GAN be best-suited for?
+
+A) Classifying tumors as malignant or benign
+
+B) Translating English to French
+
+C) Optimizing ad relevance on websites based on user activity
+
+D) Creating Picasso-style artwork
+
+
+**Question 2:** Which of the following are ethical issues that GANs pose, which were not already a concern with traditional neural networks?
+
+I) The ability to generate fake images of people in certain places doing certain activities.
+
+II) Training a generator well enough to fool a discriminator that classifies banking activity as fraudulent or legitimate.
+
+III) Observing user browsing activity to optimize the apperance of ads on websites.
 
 # Answers & Explanations
 
