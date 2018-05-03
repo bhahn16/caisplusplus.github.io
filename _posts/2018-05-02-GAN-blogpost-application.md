@@ -74,6 +74,7 @@ C) Optimizing ad relevance on websites based on user activity
 D) Creating Picasso-style artwork
 
 
+
 **Question 2:** Which of the following are ethical issues that GANs pose, which were not already a concern with traditional neural networks?
 
 I) The ability to generate fake images of people in certain places doing certain activities.
@@ -91,6 +92,28 @@ I is true because the generator will manipulate whatever data it is given into t
 II is false because the generator can upscale low-dimensional input into high-dimensional input. Given random input with dimensionality 10, there are many different ways to scale it up to a 784-dimensional image. Note that the input dimensionality cannot be greater than the output dimensionality.
 
 III is false because all the generator needs to do is create realistic images to fool the discriminator. It's not necessary to hold the input vector constant, if anything doing so may be bad because it could make the generator's output more predictable.
+
+
+
+**Review Question 1: D**
+
+Choice A is a classification problem, where we are interested in taking high-dimensional input **X** and returning low-dimensional output **Y** in the range **[0,1]**. Not the other way around.
+
+Choice B is best suited for a recurrent neural network because of the sequential nature of this task. GANs typically use convolutional neural networks, however this is still a workable option.
+
+Choice C is unlikely because we have no intention of generating anything new, however the underlying principle of the discriminator could be used to accomplish this.
+
+Choice D is correct because we are generating new data, and the discriminator could be trained on real Picasso artwork to critique the generator.
+
+
+
+**Review Question 2: I and II only**
+
+Choice I is an ethical issue involving the creation of images that never existed before. A traditional neural network would only be able to classify existing images.
+
+Choice II is an ethical issue that may potentially allow a hacker to use the capabiliites of a GAN to train a generator that finds a weakness in an existing neural network to do something malicious. It's a stretch, especially because the hacker would need the original neural network in the first place. But just for concept, an example might be generating a strange audio fragment that, when played to Siri, translates to "Venmo @bad-guy $100". Or generating a strange incomprehensibe image that a celebrity-indentifying convolutional neural network classifies as Taylor Swift.
+
+Choice III is an ethical issue, however this was already a concern before GANs since this task can be accomplished with other types of networks.
 
 # Resources
 https://deeplearning4j.org/generative-adversarial-network
