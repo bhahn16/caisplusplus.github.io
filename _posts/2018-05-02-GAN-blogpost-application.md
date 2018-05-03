@@ -117,7 +117,12 @@ Choice III is an ethical issue, however this was already a concern before GANs s
 
 # Resources
 https://deeplearning4j.org/generative-adversarial-network
+https://www.analyticsvidhya.com/blog/2017/06/introductory-generative-adversarial-networks-gans/
+http://blog.aylien.com/introduction-generative-adversarial-networks-code-tensorflow/
 
 
 # References
 https://hackernoon.com/generative-adversarial-networks-a-deep-learning-architecture-4253b6d12347
+https://danieltakeshi.github.io/2017/03/05/understanding-generative-adversarial-networks/
+https://www.youtube.com/watch?v=Sw9r8CL98N0
+http://caisplusplus.usc.edu/curriculum
