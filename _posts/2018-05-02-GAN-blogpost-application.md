@@ -47,8 +47,19 @@ And so for all inputs **N**,
 
 ![missing image](https://github.com/bhahn16/caisplusplus.github.io/blob/master/images/GAN_errorsum2.png)
 
-As for the generator, there are a few options for the error function, each one with its own drawback.
+As for the generator, there are a few options for the error function. One option is to use the same error function, but instead try to maximize it using gradient "ascent". While this can work, it is not always recommended because if the discriminator becomes too good at predicting whether images are real or fake (i.e. returning numbers very close to 0 and 1) then the gradient for the generator will be very small. It will then be extremely hard for the generator to know which way to change its parameters and improve because of the **"vanishing gradient"** issue. However, manipulating the learning rates of each side can help alleviate this problem. Luckily there are two other closed-form error functions described [here](https://danieltakeshi.github.io/2017/03/05/understanding-generative-adversarial-networks/), with a drawback being they are a little beyond the introductory level and will not be elaborated on here.
 
+
+### Controlling the Output
+
+As mentioned in the introduction, in the case of generating pictures of dogs, it is possible to specify certain attributes of the output, such as fur color, size, and more. Below is an example from a study that showed how to generate a human face, specifying that it must be the face of a woman wearing sunglasses.
+
+![missing image](https://github.com/bhahn16/caisplusplus.github.io/blob/master/images/GAN_glasses.jpeg)
+
+
+First, imagine all image vectors represents a point in a high-dimensional space. This is often referred to as the **latent space**, and it turns out images that are generally similar have points in the latent space relatively close to each other. There are continuous paths through this space, which can be traversed by changing the values of the image vector components. This means it is possible to perform image addition and subtraction to construct new images. In other words, let's say I'm given the latent vectors of the face of a man **M**, the face of a man with sunglasses **G**, and the face of a woman **W**. Using vector addition and subtraction, the following expression would evaluate to an image vector of a woman wearing sunglasses: **G** - **M** + **W**.
+
+Let's apply this to GANs by doing the same thing, using the example above. First use the generator to create a bunch of pictures of men with glasses, and average all of the *input* vectors used to generate these images. Do the same for pictures of men without glasses, and women without glasses. Call these averaged vectors **G'**, **M'** and **W'** respectively. Perform the same vector operation **G'** - **M'** + **W'** to get an input vector that, when passed through the generator, will produce a woman wearing sunglasses. This works because all we are doing is moving through the latent space.
 
 # Review Questions
 
@@ -57,7 +68,7 @@ As for the generator, there are a few options for the error function, each one w
 
 **Checkpoint Question 1: I only**
 
-I is true because the generator will manipulate whatever data it is given into the appropriate output. It doesn't matter if the fibonacci sequence or random static is fed in, they both carry no meaning to a machine. It is simply a starting point.
+I is true because the generator will manipulate whatever data it is given into the appropriate output. It doesn't matter if the fibonacci sequence or random numbers are fed in, they both carry no meaning to a machine. It is simply a starting point.
 
 II is false because the generator can upscale low-dimensional input into high-dimensional input. Given random input with dimensionality 10, there are many different ways to scale it up to a 784-dimensional image. Note that the input dimensionality cannot be greater than the output dimensionality.
 
